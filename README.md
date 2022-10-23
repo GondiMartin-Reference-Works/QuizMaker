@@ -1,30 +1,30 @@
 # Házi feladat specifikáció
 
-Információk [itt](https://viauac00.github.io/laborok/hf)
-
 ## Mobil- és webes szoftverek
-### [Dátum]
-### [Alkalmazás neve]
-### [Teljes név] - ([Neptun kód])
-### [e-mail cím] 
-### Laborvezető: [Laborvezető neve]
+### 2022.10.22.
+### QuizMaker
+### Göndöcs Martin - (WUPA9P)
+### martin.gondocs@gmail.com 
+### Laborvezető: Márton István
 
 ## Bemutatás
 
-Az alkalmazás rövid, 2-3 mondatos bemutatása. Honnan az ötlet, mi szülte az igényt, ki lehetne a célközönség.
-A laboron és előadáson bemutatott alkalmazásokat nem lehet házi feladatnak választani.
+Az alkalmazás egy tanulási módszert valósít meg, vagyis egy összeállított kérdésbankból ellenőrízhetjük tudásunkat. Az ötletet a Quizlet Flashcard nevű játéka szülte, mellyel tanulók könnyen átismételhetik a tananyagot.
 
 ## Főbb funkciók
 
-Az alkalmazás minden funkciójára kiterjedő leírás (röviden, lényegre törően). Legyen egyértelműen eldönthető, hogy az adott funkció implementálva van-e!
-Pl.: Az alkalmazással lehetőség van tételek felvételére és tárolására, valamint azok rendezett megjelenítésére, illetve frissítésre X hálózati hívás segítségével.
+Az alkalmazásban lehetőség van egy kérdésbank összeállítására. Itt lehetőség van kérdések felvételére, tárolására, törlésére. Új kérdés hozzáadásakor magát a kérdést kell megadni, és a hozzá tartozó választ. Egy kérdéshez Igaz vagy Hamis érték társítható, attól függően természetesen, hogy melyik a kérdéshez tartozó helyes válasz.
+
+Ezt követően az alkalmazással elindíthatjuk a tanulási folyamatot. Ekkor egy új teszt jön létre, melyben véletlenszerű sorrendben érkeznek a kérdések az adatbázisunkból (kérdésbankból). A kérdés megválaszolásához jobbra vagy balra kell húznunk a kártyát - ezen kártyán szerepel a feltett kérdés. Előbbi mozdulattal igaznak, míg utóbbival hamisnak állítjuk a kérdést.
+
+Miután az összes kérdés lement, a teszt elmentődik. Ezt követően van lehetőségünk egy új teszt kitöltésére, avagy az eredményeink megtekintésére. Minden teszt eredményét tároljuk, míg azokat valaki ki nem szeretné törli.
+
 
 ## Választott technológiák:
 
-- (UI)
-- (fragmentek)
-- (RecyclerView)
-- (Perzisztens adattárolás)
+- Perzisztens adattárolás
+- fragmentek
+- RecyclerView
+- animáció
 
-
-#Házi feladat dokumentáció (ha nincs, ez a fejezet törölhető)
+![](elkepzeles.jpg)
