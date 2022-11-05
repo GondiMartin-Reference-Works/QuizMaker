@@ -18,12 +18,18 @@ class QuizMainFragment : Fragment() {
 
     override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View? {
 
-        /*binding.createDatabaseButton.setOnClickListener {
-            val intent = Intent()
+        binding = FragmentQuizMainBinding.inflate(layoutInflater)
+
+        val intent = Intent()
+        binding.createDatabaseButton.setOnClickListener {
             intent.setClass(this@QuizMainFragment.requireContext(), DatabaseActivity::class.java)
             startActivity(intent)
-        }*/
+        }
+        binding.learnButton.setOnClickListener {
+            intent.setClass(this@QuizMainFragment.requireContext(), TestActivity::class.java)
+            startActivity(intent)
+        }
 
-        return inflater.inflate(R.layout.fragment_quiz_main, container, false)
+        return binding.root
     }
 }
