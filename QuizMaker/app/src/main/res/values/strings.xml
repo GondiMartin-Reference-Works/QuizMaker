@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">QuizMaker</string>
+    <string name="database">Database</string>
+    <string name="learn">Learn</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="main">Main</string>
+    <string name="result">Result</string>
+    <string name="hello_database">Hello Database</string>
+</resources>
