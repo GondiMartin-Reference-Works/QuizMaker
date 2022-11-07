@@ -7,4 +7,12 @@
     <string name="main">Main</string>
     <string name="result">Result</string>
     <string name="hello_database">Hello Database</string>
+    <string name="remove">Remove</string>
+
+    <string name="new_question_hint">Question</string>
+    <string name="new_question">New question</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="button_true">True</string>
+    <string name="button_false">False</string>
 </resources>
