@@ -1,11 +1,11 @@
-package hu.bme.aut.android.quizmaker
+package hu.bme.aut.android.quizmaker.Database
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import hu.bme.aut.android.quizmaker.databinding.ActivityDatabaseBinding
 
-class DatabaseActivity : AppCompatActivity(), AddQuestionDialogFragment.AddQuestionDialogListener{
+class DatabaseActivity : AppCompatActivity(), AddQuestionDialogFragment.AddQuestionDialogListener {
 
     private lateinit var binding : ActivityDatabaseBinding
     private lateinit var adapter: DatabaseAdapter
@@ -37,7 +37,7 @@ class DatabaseActivity : AppCompatActivity(), AddQuestionDialogFragment.AddQuest
 
     override fun onQuestionAdded(question: String?){
         tempQ.text = question
-        adapter.addQuestion(tempQ!!)
+        adapter.addQuestion(tempQ)
     }
 
     override fun onValueAdded(value: String?) {

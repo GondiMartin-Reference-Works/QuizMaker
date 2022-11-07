@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:layout_margin="16dp"
     android:gravity="center"
-    tools:context=".QuizMainFragment"
+    tools:context=".MainPage.QuizMainFragment"
     tools:showIn="@layout/fragment_quiz_main">
 
     <LinearLayout

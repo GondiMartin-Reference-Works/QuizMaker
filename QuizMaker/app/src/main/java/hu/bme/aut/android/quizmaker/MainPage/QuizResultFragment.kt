@@ -1,10 +1,11 @@
-package hu.bme.aut.android.quizmaker
+package hu.bme.aut.android.quizmaker.MainPage
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import hu.bme.aut.android.quizmaker.R
 
 class QuizResultFragment : Fragment() {
 

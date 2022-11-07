@@ -1,15 +1,14 @@
-package hu.bme.aut.android.quizmaker
+package hu.bme.aut.android.quizmaker.Database
 
 import android.app.Dialog
 import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.widget.ToggleButton
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDialogFragment
+import hu.bme.aut.android.quizmaker.R
 import hu.bme.aut.android.quizmaker.databinding.DialogNewQuestionBinding
-import kotlinx.coroutines.selects.select
 
 class AddQuestionDialogFragment : AppCompatDialogFragment() {
     private lateinit var binding: DialogNewQuestionBinding

@@ -1,8 +1,9 @@
-package hu.bme.aut.android.quizmaker
+package hu.bme.aut.android.quizmaker.MainPage
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.android.material.tabs.TabLayoutMediator
+import hu.bme.aut.android.quizmaker.R
 import hu.bme.aut.android.quizmaker.databinding.ActivityQuizBinding
 
 class QuizActivity : AppCompatActivity() {
