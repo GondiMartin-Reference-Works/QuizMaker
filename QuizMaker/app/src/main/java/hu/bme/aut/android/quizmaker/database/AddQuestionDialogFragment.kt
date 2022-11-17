@@ -1,13 +1,11 @@
-package hu.bme.aut.android.quizmaker.Database
+package hu.bme.aut.android.quizmaker.database
 
 import android.app.Dialog
 import android.content.Context
-import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDialogFragment
-import hu.bme.aut.android.quizmaker.R
 import hu.bme.aut.android.quizmaker.databinding.DialogNewQuestionBinding
 
 class AddQuestionDialogFragment : AppCompatDialogFragment() {
@@ -15,7 +13,7 @@ class AddQuestionDialogFragment : AppCompatDialogFragment() {
     private lateinit var listener: AddQuestionDialogListener
 
     interface AddQuestionDialogListener{
-        fun onQuestionAdded(question: String?)
+        fun onQuestionAdded(question: Question?)
         fun onValueAdded(value: String?)
     }
 
@@ -27,29 +25,31 @@ class AddQuestionDialogFragment : AppCompatDialogFragment() {
             ?: throw RuntimeException("Activity must implement the AddQuestionDialogListener interface!")
     }
 
+    private fun isValid() = binding.NewQuestionDialogEditText.text.isNotEmpty()
+
+    private fun getQuestionItem() = Question(
+        text = binding.NewQuestionDialogEditText.text.toString(),
+        value = trueOrFalse()
+    )
+
+    private fun trueOrFalse(): String {
+        return if(binding.rbTrue.isChecked)
+            "True"
+        else
+            "False"
+    }
+
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val trueOrFalse = arrayOf<String>("True", "False")
 
         return AlertDialog.Builder(requireContext())
-            .setTitle(R.string.new_question)
+            .setTitle("New question")
             .setView(binding.root)
-            .setPositiveButton(R.string.ok) { _, _ ->
-                listener.onQuestionAdded(
-                    binding.NewQuestionDialogEditText.text.toString()
-                )
-            }
-            .setSingleChoiceItems(trueOrFalse, 0,
-                DialogInterface.OnClickListener{ _, which ->
-                    when (which) {
-                        0 -> listener.onValueAdded("True")
-                        1 -> listener.onValueAdded("False")
-                        else -> {
-                            listener.onValueAdded("True")
-                        }
-                    }
+            .setPositiveButton("OK") { _, _ ->
+                if (isValid()) {
+                    listener.onQuestionAdded(getQuestionItem())
                 }
-            )
-            .setNegativeButton(R.string.cancel, null)
+            }
+            .setNegativeButton("Cancel", null)
             .create()
     }
 }

@@ -1,4 +1,4 @@
-package hu.bme.aut.android.quizmaker.Database
+package hu.bme.aut.android.quizmaker.database
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -35,12 +35,12 @@ class DatabaseActivity : AppCompatActivity(), AddQuestionDialogFragment.AddQuest
         binding.mainRecyclerView.adapter = adapter
     }
 
-    override fun onQuestionAdded(question: String?){
-        tempQ.text = question
-        adapter.addQuestion(tempQ)
+    override fun onQuestionAdded(question: Question?){
+        //tempQ.text = question
+        adapter.addQuestion(question)
     }
 
     override fun onValueAdded(value: String?) {
-        tempQ.value = value
+        //tempQ.value = value
     }
 }

@@ -1,4 +1,4 @@
-package hu.bme.aut.android.quizmaker.MainPage
+package hu.bme.aut.android.quizmaker.mainPage
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

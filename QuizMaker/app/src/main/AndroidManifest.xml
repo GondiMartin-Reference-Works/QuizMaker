@@ -14,13 +14,13 @@
         android:theme="@style/Theme.QuizMaker"
         tools:targetApi="31">
         <activity
-            android:name=".Learn.TestActivity"
+            android:name=".learn.TestActivity"
             android:exported="false" />
         <activity
-            android:name=".Database.DatabaseActivity"
+            android:name=".database.DatabaseActivity"
             android:exported="false" />
         <activity
-            android:name=".MainPage.QuizActivity"
+            android:name=".mainPage.QuizActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

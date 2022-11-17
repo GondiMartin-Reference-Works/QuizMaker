@@ -1,4 +1,4 @@
-package hu.bme.aut.android.quizmaker.Database
+package hu.bme.aut.android.quizmaker.database
 
 import android.view.LayoutInflater
 import android.view.View
@@ -28,8 +28,10 @@ class DatabaseAdapter() : RecyclerView.Adapter<DatabaseAdapter.DatabaseViewHolde
 
     override fun getItemCount(): Int = questions.size
 
-    fun addQuestion(newQuestion: Question) {
-        questions.add(newQuestion)
+    fun addQuestion(newQuestion: Question?) {
+        if (newQuestion != null) {
+            questions.add(newQuestion)
+        }
         notifyItemInserted(questions.size - 1)
     }
 

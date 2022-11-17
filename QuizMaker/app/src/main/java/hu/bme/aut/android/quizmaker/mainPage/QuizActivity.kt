@@ -1,4 +1,4 @@
-package hu.bme.aut.android.quizmaker.MainPage
+package hu.bme.aut.android.quizmaker.mainPage
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

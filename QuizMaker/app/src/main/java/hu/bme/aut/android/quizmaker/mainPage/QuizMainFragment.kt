@@ -1,4 +1,4 @@
-package hu.bme.aut.android.quizmaker.MainPage
+package hu.bme.aut.android.quizmaker.mainPage
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import hu.bme.aut.android.quizmaker.Database.DatabaseActivity
-import hu.bme.aut.android.quizmaker.Learn.TestActivity
+import hu.bme.aut.android.quizmaker.database.DatabaseActivity
+import hu.bme.aut.android.quizmaker.learn.TestActivity
 import hu.bme.aut.android.quizmaker.databinding.FragmentQuizMainBinding
 
 class QuizMainFragment : Fragment() {

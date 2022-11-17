@@ -1,4 +1,4 @@
-package hu.bme.aut.android.quizmaker.Database
+package hu.bme.aut.android.quizmaker.database
 
 data class Question(
     var text : String? = null,
