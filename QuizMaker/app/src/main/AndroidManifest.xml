@@ -14,10 +14,10 @@
         android:theme="@style/Theme.QuizMaker"
         tools:targetApi="31">
         <activity
-            android:name=".learn.TestActivity"
+            android:name=".test.activity.TestActivity"
             android:exported="false" />
         <activity
-            android:name=".database.DatabaseActivity"
+            android:name=".question.activity.DatabaseActivity"
             android:exported="false" />
         <activity
             android:name=".mainPage.QuizActivity"

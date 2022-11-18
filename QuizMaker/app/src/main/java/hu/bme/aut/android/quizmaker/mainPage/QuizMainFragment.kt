@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import hu.bme.aut.android.quizmaker.database.DatabaseActivity
-import hu.bme.aut.android.quizmaker.learn.TestActivity
+import hu.bme.aut.android.quizmaker.question.activity.DatabaseActivity
+import hu.bme.aut.android.quizmaker.test.activity.TestActivity
 import hu.bme.aut.android.quizmaker.databinding.FragmentQuizMainBinding
 
 class QuizMainFragment : Fragment() {

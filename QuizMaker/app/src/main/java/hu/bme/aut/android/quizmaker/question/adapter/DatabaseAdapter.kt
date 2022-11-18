@@ -1,4 +1,4 @@
-package hu.bme.aut.android.quizmaker.database
+package hu.bme.aut.android.quizmaker.question.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,10 +6,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import hu.bme.aut.android.quizmaker.R
 import hu.bme.aut.android.quizmaker.databinding.ItemQuestionBinding
+import hu.bme.aut.android.quizmaker.question.data.QuestionItem
 import kotlin.collections.ArrayList
 
 class DatabaseAdapter() : RecyclerView.Adapter<DatabaseAdapter.DatabaseViewHolder>(){
-    private val questions: MutableList<Question> = ArrayList()
+    private val questionItems: MutableList<QuestionItem> = ArrayList()
+
+    interface QuestionItemClickListener {
+        fun onDeleteItem(item: QuestionItem)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DatabaseViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_question, parent, false)
@@ -17,38 +22,42 @@ class DatabaseAdapter() : RecyclerView.Adapter<DatabaseAdapter.DatabaseViewHolde
     }
 
     override fun onBindViewHolder(holder: DatabaseViewHolder, position: Int) {
-        val item = questions[position]
+        val item = questionItems[position]
         holder.bind(item)
 
         holder.binding.QuestionItemRemoveButton.setOnClickListener {
-            var pos = questions.indexOf(item)
-            removeQuestion(pos)
+            val pos = questionItems.indexOf(item)
+            deleteItem(pos)
         }
     }
 
-    override fun getItemCount(): Int = questions.size
+    override fun getItemCount(): Int = questionItems.size
 
-    fun addQuestion(newQuestion: Question?) {
-        if (newQuestion != null) {
-            questions.add(newQuestion)
-        }
-        notifyItemInserted(questions.size - 1)
+    fun addItem(newQuestionItem: QuestionItem) {
+        questionItems.add(newQuestionItem)
+        notifyItemInserted(questionItems.size - 1)
     }
 
-    fun removeQuestion(position: Int) {
-        questions.removeAt(position)
+    fun update(items: List<QuestionItem>) {
+        questionItems.clear()
+        questionItems.addAll(items)
+        notifyDataSetChanged()
+    }
+
+    fun deleteItem(position: Int) {
+        questionItems.removeAt(position)
         notifyItemRemoved(position)
-        if (position < questions.size) {
-            notifyItemRangeChanged(position, questions.size - position)
+        if (position < questionItems.size) {
+            notifyItemRangeChanged(position, questionItems.size - position)
         }
     }
 
     inner class DatabaseViewHolder(private val itemView: View) : RecyclerView.ViewHolder(itemView) {
         var binding = ItemQuestionBinding.bind(itemView)
-        var item: Question? = null
+        private var item: QuestionItem? = null
 
-        fun bind(newQuestion: Question?) {
-            item = newQuestion
+        fun bind(newQuestionItem: QuestionItem?) {
+            item = newQuestionItem
             binding.QuestionItemNameTextView.text = item?.text
             binding.QuestionItemValueView.text = item?.value
         }
