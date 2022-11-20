@@ -17,4 +17,8 @@
     <string name="button_false">False</string>
     <string name="igaz">True</string>
     <string name="hamis">False</string>
+
+    <string name="testName">Test_%s</string>
+    <string name="testScore">Score: %s/%s</string>
+    <string name="deleteall">DeleteAll</string>
 </resources>

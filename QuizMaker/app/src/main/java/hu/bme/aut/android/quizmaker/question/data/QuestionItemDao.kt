@@ -8,11 +8,11 @@ interface QuestionItemDao {
     fun getAll(): List<QuestionItem>
 
     @Insert
-    fun insert(shoppingItems: QuestionItem): Long
+    fun insert(questionItems: QuestionItem): Long
 
     @Update
-    fun update(shoppingItem: QuestionItem)
+    fun update(questionItem: QuestionItem)
 
     @Delete
-    fun deleteItem(shoppingItem: QuestionItem)
+    fun deleteItem(questionItem: QuestionItem)
 }

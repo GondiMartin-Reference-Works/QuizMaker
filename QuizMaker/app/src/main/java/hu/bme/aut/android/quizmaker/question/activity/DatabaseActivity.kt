@@ -5,16 +5,16 @@ import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import hu.bme.aut.android.quizmaker.databinding.ActivityDatabaseBinding
-import hu.bme.aut.android.quizmaker.question.adapter.DatabaseAdapter
+import hu.bme.aut.android.quizmaker.question.adapter.QuestionAdapter
 import hu.bme.aut.android.quizmaker.question.data.QuestionDatabase
 import hu.bme.aut.android.quizmaker.question.data.QuestionItem
 import hu.bme.aut.android.quizmaker.question.fragment.AddQuestionDialogFragment
 import kotlin.concurrent.thread
 
-class DatabaseActivity : AppCompatActivity(), AddQuestionDialogFragment.AddQuestionDialogListener, DatabaseAdapter.QuestionItemClickListener {
+class DatabaseActivity : AppCompatActivity(), AddQuestionDialogFragment.AddQuestionDialogListener, QuestionAdapter.QuestionItemClickListener {
 
     private lateinit var binding : ActivityDatabaseBinding
-    private lateinit var adapter: DatabaseAdapter
+    private lateinit var adapter: QuestionAdapter
     private lateinit var database: QuestionDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +37,7 @@ class DatabaseActivity : AppCompatActivity(), AddQuestionDialogFragment.AddQuest
 
     private fun initRecyclerView() {
         binding.mainRecyclerView.layoutManager = LinearLayoutManager(this)
-        adapter = DatabaseAdapter()
+        adapter = QuestionAdapter()
         binding.mainRecyclerView.adapter = adapter
         loadItemsInBackground()
     }

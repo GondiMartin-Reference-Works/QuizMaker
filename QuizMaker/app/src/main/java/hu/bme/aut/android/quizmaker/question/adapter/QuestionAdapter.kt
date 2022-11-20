@@ -9,7 +9,7 @@ import hu.bme.aut.android.quizmaker.databinding.ItemQuestionBinding
 import hu.bme.aut.android.quizmaker.question.data.QuestionItem
 import kotlin.collections.ArrayList
 
-class DatabaseAdapter() : RecyclerView.Adapter<DatabaseAdapter.DatabaseViewHolder>(){
+class QuestionAdapter() : RecyclerView.Adapter<QuestionAdapter.DatabaseViewHolder>(){
     private val questionItems: MutableList<QuestionItem> = ArrayList()
 
     interface QuestionItemClickListener {
