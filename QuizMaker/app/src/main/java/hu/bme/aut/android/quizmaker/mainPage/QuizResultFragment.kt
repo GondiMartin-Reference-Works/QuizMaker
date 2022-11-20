@@ -13,7 +13,7 @@ import hu.bme.aut.android.quizmaker.test.adapter.TestAdapter
 import hu.bme.aut.android.quizmaker.test.data.TestDatabase
 import kotlin.concurrent.thread
 
-class QuizResultFragment : Fragment() {
+class QuizResultFragment() : Fragment() {
 
     private lateinit var binding: FragmentQuizResultBinding
     private lateinit var adapter: TestAdapter
@@ -37,13 +37,10 @@ class QuizResultFragment : Fragment() {
     private fun initFab() {
         binding.deleteAll.setOnClickListener {
             thread{
-                val items = database.testItemDao().getAll()
-                activity?.runOnUiThread{
-                    for(item in items){
-                        adapter.deleteItems()
-                    }
-                }
                 database.testItemDao().deleteAll()
+                activity?.runOnUiThread{
+                    adapter.deleteItems()
+                }
             }
         }
     }

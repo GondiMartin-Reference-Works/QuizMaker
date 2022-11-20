@@ -40,14 +40,6 @@ class TestAdapter() : RecyclerView.Adapter<TestAdapter.DatabaseViewHolder>(){
         notifyDataSetChanged()
     }
 
-    fun deleteItem(position: Int) {
-        testItems.removeAt(position)
-        notifyItemRemoved(position)
-        if (position < testItems.size) {
-            notifyItemRangeChanged(position, testItems.size - position)
-        }
-    }
-
     inner class DatabaseViewHolder(private val itemView: View) : RecyclerView.ViewHolder(itemView) {
         var binding = ItemTestBinding.bind(itemView)
         private var item: TestItem? = null
