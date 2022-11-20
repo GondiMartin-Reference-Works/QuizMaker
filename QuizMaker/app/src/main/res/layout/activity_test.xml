@@ -55,42 +55,32 @@
         android:layout_height="0dp"
         android:layout_weight="3"
         android:orientation="horizontal"
-        android:weightSum="2">
+        android:weightSum="4">
 
-        <TextView
+        <Button
+            android:id="@+id/btTrue"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
             android:fontFamily="@font/poppins_mediumitalic"
-            android:text="@string/swipe_left_for_false"
+            android:text="@string/button_true"
             android:textAlignment="center"
-            android:textColor="#0277BD"
-            tools:ignore="NestedWeights" />
+            tools:ignore="NestedWeights"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
 
-        <TextView
+        <Button
+            android:id="@+id/btFalse"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
             android:fontFamily="@font/poppins_mediumitalic"
-            android:text="@string/swipe_right_for_true"
+            android:text="@string/button_false"
             android:textAlignment="center"
-            android:textColor="#0277BD" />
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
     </LinearLayout>
 
 </LinearLayout>
-<!--
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".test.activity.TestActivity">
-
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Test activity"/>
-</LinearLayout>-->

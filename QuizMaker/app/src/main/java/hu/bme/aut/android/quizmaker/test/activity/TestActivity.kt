@@ -1,6 +1,7 @@
 package hu.bme.aut.android.quizmaker.test.activity
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -45,6 +46,30 @@ class TestActivity : AppCompatActivity() {
         testAdapt = TestAdapter()
 
         loadItemsInBackground()
+
+        binding.btTrue.setOnClickListener {
+            val victory: Boolean = question.value == "True"
+            addTestPoint(victory)
+            nextQuestion()
+        }
+
+        binding.btFalse.setOnClickListener {
+            val victory: Boolean = question.value == "False"
+            addTestPoint(victory)
+            nextQuestion()
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+
+        thread{
+            val insertId = testDB.testItemDao().insert(test)
+            test.id = insertId
+            runOnUiThread{
+                testAdapt.addItem(test)
+            }
+        }
     }
 
     private fun loadItemsInBackground() {
@@ -62,20 +87,13 @@ class TestActivity : AppCompatActivity() {
             progressUp()
 
             // First question
-            question = popOneQuestion()
-            binding.cardText.text =  question.text
+            nextQuestion()
 
             //Create new test
             test = TestItem(
                 sumPoints = maxQuestionNum,
                 studPoints = 0
             )
-
-            val insertId = testDB.testItemDao().insert(test)
-            test.id = insertId
-            runOnUiThread{
-                testAdapt.addItem(test)
-            }
         }
     }
 
@@ -90,6 +108,24 @@ class TestActivity : AppCompatActivity() {
         thread{
             ++answeredQuestionNumber
             binding.progressTextView.text = "$answeredQuestionNumber/$maxQuestionNum"
+        }
+    }
+
+    private fun addTestPoint(victory: Boolean){
+        if(victory){
+            ++test.studPoints
+        }
+    }
+
+    private fun nextQuestion(){
+        if(questionItems.isEmpty()){
+            val intent = Intent()
+            intent.setClass(this, QuizActivity::class.java)
+            startActivity(intent)
+        }else{
+            question = popOneQuestion()
+            binding.cardText.text =  question.text
+            progressUp()
         }
     }
 }

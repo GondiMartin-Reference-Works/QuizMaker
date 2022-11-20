@@ -23,6 +23,4 @@
     <string name="deleteall">DeleteAll</string>
     <string name="progress_22_42">Progress: 22/42</string>
     <string name="questiontext">QuestionText</string>
-    <string name="swipe_left_for_false">Swipe LEFT for False</string>
-    <string name="swipe_right_for_true">Swipe RIGHT for True</string>
 </resources>
