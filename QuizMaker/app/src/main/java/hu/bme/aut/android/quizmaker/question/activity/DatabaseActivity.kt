@@ -38,8 +38,8 @@ class DatabaseActivity : AppCompatActivity(), AddQuestionDialogFragment.AddQuest
     }
 
     private fun initRecyclerView() {
+        adapter = QuestionAdapter(this)
         binding.mainRecyclerView.layoutManager = LinearLayoutManager(this)
-        adapter = QuestionAdapter()
         binding.mainRecyclerView.adapter = adapter
         loadItemsInBackground()
     }

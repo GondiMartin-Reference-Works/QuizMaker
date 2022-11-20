@@ -13,9 +13,8 @@ import hu.bme.aut.android.quizmaker.question.data.QuestionItem
 import kotlin.collections.ArrayList
 import kotlin.concurrent.thread
 
-class QuestionAdapter() : RecyclerView.Adapter<QuestionAdapter.DatabaseViewHolder>(){
+class QuestionAdapter(private val listener: QuestionItemClickListener) : RecyclerView.Adapter<QuestionAdapter.DatabaseViewHolder>(){
     private val questionItems: MutableList<QuestionItem> = ArrayList()
-    private lateinit var binding: ActivityDatabaseBinding
 
     interface QuestionItemClickListener {
         fun onDeleteItem(item: QuestionItem)
@@ -30,9 +29,8 @@ class QuestionAdapter() : RecyclerView.Adapter<QuestionAdapter.DatabaseViewHolde
         val item = questionItems[position]
         holder.bind(item)
 
-        holder.binding.QuestionItemRemoveButton.setOnClickListener {
-            val pos = questionItems.indexOf(item)
-            deleteItem(pos)
+        holder.binding.QuestionItemRemoveButton.setOnClickListener {_ ->
+            listener.onDeleteItem(item)
         }
     }
 
@@ -49,17 +47,10 @@ class QuestionAdapter() : RecyclerView.Adapter<QuestionAdapter.DatabaseViewHolde
         notifyDataSetChanged()
     }
 
-    fun deleteItem(position: Int) {
-        questionItems.removeAt(position)
-        notifyItemRemoved(position)
-        if (position < questionItems.size) {
-            notifyItemRangeChanged(position, questionItems.size - position)
-        }
-    }
-
-    fun delete(quest: QuestionItem){
-        val pos: Int = questionItems.indexOf(quest)
-        deleteItem(pos)
+    fun deleteItem(questionItem: QuestionItem) {
+        val index: Int = questionItems.indexOf(questionItem)
+        questionItems.removeAt(index)
+        notifyItemRemoved(index)
     }
 
     inner class DatabaseViewHolder(private val itemView: View) : RecyclerView.ViewHolder(itemView) {
