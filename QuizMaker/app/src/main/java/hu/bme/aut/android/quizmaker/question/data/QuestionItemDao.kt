@@ -14,5 +14,5 @@ interface QuestionItemDao {
     fun update(questionItem: QuestionItem)
 
     @Delete
-    fun deleteItem(questionItem: QuestionItem)
+    fun delete(questionItem: QuestionItem)
 }

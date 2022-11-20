@@ -5,9 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import hu.bme.aut.android.quizmaker.databinding.ActivityDatabaseBinding
-import hu.bme.aut.android.quizmaker.databinding.ItemQuestionBinding
 import hu.bme.aut.android.quizmaker.question.adapter.QuestionAdapter
-import hu.bme.aut.android.quizmaker.question.adapter.QuestionAdapter.DatabaseViewHolder
 import hu.bme.aut.android.quizmaker.question.data.QuestionDatabase
 import hu.bme.aut.android.quizmaker.question.data.QuestionItem
 import hu.bme.aut.android.quizmaker.question.fragment.AddQuestionDialogFragment
@@ -65,8 +63,11 @@ class DatabaseActivity : AppCompatActivity(), AddQuestionDialogFragment.AddQuest
 
     override fun onDeleteItem(item: QuestionItem) {
         thread{
-            database.questionItemDao().deleteItem(item)
+            database.questionItemDao().delete(item)
             Log.d("MainActivity", "ShoppingItem delete was successful")
+            runOnUiThread {
+                adapter.deleteItem(item)
+            }
         }
         initRecyclerView()
     }
