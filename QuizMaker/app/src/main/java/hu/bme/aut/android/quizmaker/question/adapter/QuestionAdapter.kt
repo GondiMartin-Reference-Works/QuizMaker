@@ -5,12 +5,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import hu.bme.aut.android.quizmaker.R
+import hu.bme.aut.android.quizmaker.databinding.ActivityDatabaseBinding
 import hu.bme.aut.android.quizmaker.databinding.ItemQuestionBinding
+import hu.bme.aut.android.quizmaker.question.activity.DatabaseActivity
+import hu.bme.aut.android.quizmaker.question.data.QuestionDatabase
 import hu.bme.aut.android.quizmaker.question.data.QuestionItem
 import kotlin.collections.ArrayList
+import kotlin.concurrent.thread
 
 class QuestionAdapter() : RecyclerView.Adapter<QuestionAdapter.DatabaseViewHolder>(){
     private val questionItems: MutableList<QuestionItem> = ArrayList()
+    private lateinit var binding: ActivityDatabaseBinding
 
     interface QuestionItemClickListener {
         fun onDeleteItem(item: QuestionItem)
@@ -50,6 +55,11 @@ class QuestionAdapter() : RecyclerView.Adapter<QuestionAdapter.DatabaseViewHolde
         if (position < questionItems.size) {
             notifyItemRangeChanged(position, questionItems.size - position)
         }
+    }
+
+    fun delete(quest: QuestionItem){
+        val pos: Int = questionItems.indexOf(quest)
+        deleteItem(pos)
     }
 
     inner class DatabaseViewHolder(private val itemView: View) : RecyclerView.ViewHolder(itemView) {
