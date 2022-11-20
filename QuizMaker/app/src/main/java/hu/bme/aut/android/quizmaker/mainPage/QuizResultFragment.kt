@@ -24,14 +24,14 @@ class QuizResultFragment : Fragment() {
 
         binding = FragmentQuizResultBinding.inflate(layoutInflater)
 
-        database = activity?.let { TestDatabase.getDatabase(it.applicationContext) }!!
+        database = TestDatabase.getDatabase(requireContext().applicationContext)
 
         initFab()
         initRecyclerView()
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?, ): View? {
-        return inflater.inflate(R.layout.fragment_quiz_result, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View? {
+        return binding.root
     }
 
     private fun initFab() {
@@ -43,6 +43,7 @@ class QuizResultFragment : Fragment() {
                         adapter.deleteItems()
                     }
                 }
+                database.testItemDao().deleteAll()
             }
         }
     }

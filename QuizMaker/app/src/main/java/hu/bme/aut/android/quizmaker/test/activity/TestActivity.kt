@@ -3,12 +3,15 @@ package hu.bme.aut.android.quizmaker.test.activity
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import hu.bme.aut.android.quizmaker.databinding.ActivityTestBinding
+import hu.bme.aut.android.quizmaker.databinding.FragmentQuizResultBinding
 import hu.bme.aut.android.quizmaker.question.adapter.QuestionAdapter
 import hu.bme.aut.android.quizmaker.question.data.QuestionDatabase
 import hu.bme.aut.android.quizmaker.question.data.QuestionItem
 import hu.bme.aut.android.quizmaker.test.adapter.TestAdapter
 import hu.bme.aut.android.quizmaker.test.data.TestDatabase
+import hu.bme.aut.android.quizmaker.test.data.TestItem
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.concurrent.thread
@@ -23,6 +26,7 @@ class TestActivity : AppCompatActivity() {
 
     private val questionItems: MutableList<QuestionItem> = ArrayList()
     private lateinit var question: QuestionItem
+    private lateinit var test: TestItem
     private var maxQuestionNum: Int = 0
     private var answeredQuestionNumber: Int = -1
 
@@ -50,6 +54,18 @@ class TestActivity : AppCompatActivity() {
             // First question
             question = popOneQuestion()
             binding.cardText.text =  question.text
+
+            //Create new test
+            test = TestItem(
+                sumPoints = maxQuestionNum,
+                studPoints = 0
+            )
+
+            val insertId = testDB.testItemDao().insert(test)
+            test.id = insertId
+            runOnUiThread{
+                testAdapt.addItem(test)
+            }
         }
     }
 

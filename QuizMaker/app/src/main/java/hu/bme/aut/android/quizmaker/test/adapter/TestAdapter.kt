@@ -1,7 +1,6 @@
 package hu.bme.aut.android.quizmaker.test.adapter
 
 import android.annotation.SuppressLint
-import android.provider.Settings.Secure.getString
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -41,18 +40,23 @@ class TestAdapter() : RecyclerView.Adapter<TestAdapter.DatabaseViewHolder>(){
         notifyDataSetChanged()
     }
 
+    fun deleteItem(position: Int) {
+        testItems.removeAt(position)
+        notifyItemRemoved(position)
+        if (position < testItems.size) {
+            notifyItemRangeChanged(position, testItems.size - position)
+        }
+    }
+
     inner class DatabaseViewHolder(private val itemView: View) : RecyclerView.ViewHolder(itemView) {
         var binding = ItemTestBinding.bind(itemView)
         private var item: TestItem? = null
 
         @SuppressLint("SetTextI18n")
         fun bind(newTestItem: TestItem?) {
-            if(newTestItem != null){
-                item = newTestItem
-                binding.TestId.text = "Test_" + item!!.id.toString()
-                binding.TestScore.text = "Score: " + item!!.studPoints.toString() + "/" + item!!.sumPoints.toString()
-            }
-
+            item = newTestItem
+            binding.TestId.text = "Test_" + item!!.id.toString()
+            binding.TestScore.text = "Score: " + item!!.studPoints.toString() + "/" + item!!.sumPoints.toString()
         }
     }
 }
