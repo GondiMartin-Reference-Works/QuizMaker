@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">QuizMaker</string>
+    <string name="database">Database</string>
+    <string name="learn">Learn</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="main">Main</string>
+    <string name="result">Result</string>
+    <string name="hello_database">Hello Database</string>
+    <string name="remove">Remove</string>
+
+    <string name="new_question_hint">Question</string>
+    <string name="new_question">New question</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="button_true">True</string>
+    <string name="button_false">False</string>
+    <string name="igaz">True</string>
+    <string name="hamis">False</string>
+
+    <string name="testName">Test_%s</string>
+    <string name="testScore">Score: %s/%s</string>
+    <string name="deleteall">DeleteAll</string>
+    <string name="progress_22_42">Progress: 22/42</string>
+    <string name="questiontext">QuestionText</string>
+</resources>
