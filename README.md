@@ -3,9 +3,8 @@
 ## Mobil- és webes szoftverek
 ### 2022.10.22.
 ### QuizMaker
-### Göndöcs Martin - (WUPA9P)
+### Göndöcs Martin
 ### martin.gondocs@gmail.com 
-### Laborvezető: Márton István
 
 ## Bemutatás
 
